@@ -1,0 +1,11 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" routerLink="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/new_question">Add a Question</a>
+  </li>
+  <li class="nav-item">
+    <button *ngIf="isHome" class="btn btn-secondary" (click)="log($event)">Logout</button>
+  </li>
+</ul>

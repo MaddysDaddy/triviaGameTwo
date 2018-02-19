@@ -1,0 +1,22 @@
+div.play-container {
+  text-align: center;
+  margin: 2em 0;
+  padding: 1.5em;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #eaeaea;
+}
+
+p {
+  margin: 1em 0;
+}
+
+div.message {
+  padding: 1em;
+  border-radius: 5px;
+  color: #fff;
+}
+
+input[type=text] {
+  text-transform: capitalize;
+}

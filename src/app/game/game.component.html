@@ -1,0 +1,73 @@
+<h5>Hi {{ user?.name }},</h5>
+<p>
+  Choose an answer for each of the questions and submit the test once done. Good luck!
+</p>
+
+<div class="row" *ngIf="errorMessage">
+  <div class="col-md-12">
+    <div class="error bg-danger">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
+
+<form (submit)="onSubmit($event, game)" #gameForm="ngForm">
+  <div class="form-group">
+    <p>1. {{ questions[0].text }}</p>
+
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q1" type="radio" [value]="questions[0].correct_answer" name="question0" required> {{ questions[0].correct_answer }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q1" type="radio" [value]="questions[0].fake_answer_1" name="question0" required> {{ questions[0].fake_answer_1 }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q1" type="radio" [value]="questions[0].fake_answer_2" name="question0" required> {{ questions[0].fake_answer_2 }}</label>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <p>2. {{ questions[1].text }}</p>
+
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q2" type="radio" [value]="questions[1].correct_answer" name="question1" required> {{ questions[1].correct_answer }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q2" type="radio" [value]="questions[1].fake_answer_1" name="question1" required> {{ questions[1].fake_answer_1 }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q2" type="radio" [value]="questions[1].fake_answer_2" name="question1" required> {{ questions[1].fake_answer_2 }}</label>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <p>3. {{ questions[2].text }}</p>
+
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q3" type="radio" [value]="questions[2].correct_answer" name="question2" required> {{ questions[2].correct_answer }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q3" type="radio" [value]="questions[2].fake_answer_1" name="question2" required> {{ questions[2].fake_answer_1 }}</label>
+    </div>
+    <div class="radio">
+      <label>
+        <input [(ngModel)]="q3" type="radio" [value]="questions[2].fake_answer_2" name="question2" required> {{ questions[2].fake_answer_2 }}</label>
+    </div>
+  </div>
+
+  <p class="info">*All questions must be answered.</p>
+
+  <a (click)="cancelGame()" class="btn btn-danger">Cancel</a>
+  <button class="btn btn-primary" [disabled]="!gameForm.valid" type="submit">Submit</button>
+</form>

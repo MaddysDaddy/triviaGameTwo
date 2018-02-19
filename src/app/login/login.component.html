@@ -1,0 +1,41 @@
+<app-nav (logout)="logout($event)" [isHome]="isHome" *ngIf="authed">
+</app-nav>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div *ngIf="message" class="message bg-success">
+      {{ message }}
+    </div>
+    <div *ngIf="errorMessage" class="message bg-danger">{{ errorMessage }}</div>
+  </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="!authed">
+  <div class="col-md-8">
+    <div class="play-container">
+
+      <form (submit)="onSubmit($event, user)">
+
+        <div class="form-group">
+          <label for="name">Enter your name to play:</label>
+          <input type="text" name="name" class="form-control" [(ngModel)]="user.name" required minlength="2" #name="ngModel">
+          <span *ngIf="!name.valid && (name.touched || name.dirty)" class="error text-danger">Please enter a name to begin playing.</span>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!name.valid">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row justify-content-center" *ngIf="authed">
+  <div class="col-md-8">
+    <div class="play-container">
+      <a routerLink="/lets_play" class="btn btn-lg btn-primary">Let's Play!</a>
+      <p>Click the button above to start the trivia game.</p>
+    </div>
+  </div>
+</div>

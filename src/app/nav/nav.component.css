@@ -1,0 +1,7 @@
+ul.nav {
+  margin: 1em 0;
+}
+
+.nav-item:last-child {
+  margin-left: auto;
+}

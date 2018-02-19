@@ -1,0 +1,37 @@
+<div class="row justify-content-end">
+  <div class="col-md-12">
+    <form (submit)="searchGames($event, searchForm)" #searchForm="ngForm">
+      <div class="form-group row">
+
+        <label for="filter" class="col-sm-2 col-form-label">Search:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="filter" [(ngModel)]="filter" placeholder="Search by Name, Score or Percentage">
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td class="name">{{ game.user }}</td>
+          <td>{{ game.score }}</td>
+          <td>{{ game.percentage }}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

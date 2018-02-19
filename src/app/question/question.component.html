@@ -1,0 +1,32 @@
+<app-nav (logout)="logout($event)" [isHome]="isHome">
+</app-nav>
+<h2>New Question</h2>
+
+<form (submit)="onSubmit($event, questionForm)" #questionForm="ngForm">
+  <div class="form-group">
+    <label for="text">Question:</label>
+    <textarea [(ngModel)]="question.text" required minlength="15" #text="ngModel" name="text" id="text" cols="30" rows="10" class="form-control"></textarea>
+    <span *ngIf="!text.valid && (text.touched || text.dirty)" class="error text-danger">This field is required and must be at least 15 characters long.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="correct_answer">Correct Answer:</label>
+    <input [(ngModel)]="question.correct_answer" required #correctAnswer="ngModel" type="text" name="correct_answer" class="form-control">
+    <span *ngIf="!correctAnswer.valid && (correctAnswer.touched || correctAnswer.dirty)" class="error text-danger">This field is required.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="fake_answer_1">Fake Answer 1:</label>
+    <input [(ngModel)]="question.fake_answer_1" required #fakeAnswerOne="ngModel" type="text" name="fake_answer_1" class="form-control">
+    <span *ngIf="!fakeAnswerOne.valid && (fakeAnswerOne.touched || fakeAnswerOne.dirty)" class="error text-danger">This field is required.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="fake_answer_2">Fake Answer 2:</label>
+    <input [(ngModel)]="question.fake_answer_2" required #fakeAnswerTwo="ngModel" type="text" name="fake_answer_2" class="form-control">
+    <span *ngIf="!fakeAnswerTwo.valid && (fakeAnswerTwo.touched || fakeAnswerTwo.dirty)" class="error text-danger">This field is required.</span>
+  </div>
+
+  <button (click)="cancelQuestion(questionForm)" class="btn btn-danger">Cancel</button>
+  <button [disabled]="!questionForm.valid" class="btn btn-primary" type="submit">Add Question</button>
+</form>

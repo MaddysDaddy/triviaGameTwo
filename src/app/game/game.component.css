@@ -1,0 +1,21 @@
+div.form-group {
+  padding: 1em;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+div.error {
+  border-radius: 5px;
+  padding: 1em;
+  color: #fff;
+  margin-bottom: 1em;
+}
+
+.btn-danger {
+  color: #fff !important;
+}
+
+p.info {
+  font-style: italic;
+}
